@@ -8,9 +8,9 @@
               <label for="photoupload">Example file input</label>
               <input type="file" name='photoupload' class="form-control-file mb-3" id="photoupload">
               
-              
-              <!-- <div><img src="{% static 'images/123.jpg'%}"}></div> -->
-              
+              {% if photopath != None %}
+              <div><img src="{% static photopath %}"></div>
+              {% endif %}
 
               <button type="submit" id="photoupload"class="btn btn-primary">Submit</button>
             </div>
