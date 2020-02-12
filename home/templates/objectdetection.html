@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+{% load static %}
+{%  block title %} UPLOAD YOUR PHOTO {% endblock %}
+{%block content%}
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <div class="form-group">
+              <label for="photoupload">Example file input</label>
+              <input type="file" name='photoupload' class="form-control-file mb-3" id="photoupload">
+              
+              {% if photopath != None %}
+              <div><img src="{% static photopath %}"></div>
+              {% endif %}
+
+              <button type="submit" id="photoupload"class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        {% endblock %}
