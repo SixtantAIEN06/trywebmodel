@@ -4,15 +4,26 @@
 {%block content%}
         <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
+          {% if photopaths == None %}
             <div class="form-group">
               <label for="photoupload">Example file input</label>
               <input type="file" name='photoupload' class="form-control-file mb-3" id="photoupload">
               
-              {% if photopath != None %}
-              <div><img src="{% static photopath %}"></div>
-              {% endif %}
-
               <button type="submit" id="photoupload"class="btn btn-primary">Submit</button>
+              {% else %}
+              <form method="GET">
+                {% for photopath in photopaths %}
+                
+                  <input type="radio" name="style" id={{photopath}} value={{photopath}}>
+                  <label for={{photopath}}>
+                  <div><img src="{% static photopath %}" height="100"></div>
+                </label>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">create</button>
+              </form>
+             
+            
+              {% endif %}
             </div>
         </form>
         {% endblock %}

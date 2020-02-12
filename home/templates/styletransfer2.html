@@ -1,0 +1,74 @@
+{%extends 'base.html' %}
+{% load static %}
+{%  block title %} UPLOAD YOUR PHOTO {% endblock %}
+{%block content%}
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <!-- <div class="form-group">
+              <label for="photoupload">Example file input</label>
+              <input type="file" name='photoupload' class="form-control-file mb-3" id="photoupload"> -->
+             
+              <form method="POST">
+                
+
+                  
+                  <input type="radio" name="style" id="style1" value="style1">
+                    <label for=style1>
+                    <div><img src="{% static './makeupstyle/1.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style2" value="style2">
+                    <label for=style2>
+                    <div><img src="{% static './makeupstyle/2.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style3" value="style3">
+                    <label for=style3>
+                    <div><img src="{% static './makeupstyle/3.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style4" value="style4">
+                    <label for=style4>
+                    <div><img src="{% static './makeupstyle/4.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style5" value="style5">
+                    <label for=style5>
+                    <div><img src="{% static './makeupstyle/5.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style6" value="style6">
+                    <label for=style6>
+                    <div><img src="{% static './makeupstyle/6.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style7" value="style7">
+                    <label for=style7>
+                    <div><img src="{% static './makeupstyle/7.jpg' %}" height="120"></div>
+                  </label>
+                  <input type="radio" name="style" id="style8" value="style8">
+                    <label for=style8>
+                    <div><img src="{% static './makeupstyle/8.jpg' %}" height="120"></div>
+                  </label>
+
+                  <button type="submit" class="btn btn-primary">Create</button>
+  
+                </form>
+            
+                {% if photopath != None %}
+                
+                <div><img src="{% static './temp/split.jpg' %}" height="480"></div>
+                 
+                
+                  {% endif %}
+
+              <!-- {% if photopaths != None %}
+              <form>
+                
+                {% for photopath in photopaths %}
+                
+                <input type="radio" name="style" id={{photopath}}>
+                  <label for={{photopath}}>
+                  <div><img src="{% static photopath %}" height="120"></div>
+                </label>
+                  {% endfor %}
+              </form>
+              {% endif %} -->
+
+            </div>
+        </form>
+        {% endblock %}
