@@ -15,8 +15,9 @@ def split(type_):
     im=Image.open('./home/static/temp/result.jpg')
     makeups = glob.glob(os.path.join('home','static','makeupstyle','*'))
     num=len(makeups)+1
-    img_size=int(im.size[0]/num)
-    im1 = im.crop((type_num*img_size,0, (type_num+1)*img_size, img_size)) 
+    img_w=int(im.size[0]/num)
+    img_h=int(im.size[1])
+    im1 = im.crop((type_num*img_w,0, (type_num+1)*img_w, img_h)) 
     # im1.show()
 
 

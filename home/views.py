@@ -10,10 +10,10 @@ import os
 # import subprocess
 import tensorflow as tf
 
-from .flask.peeweetest import Classified
+# from .flask.peeweetest import Classified
 
-from .object_detection.evaluate import YoloTest
-YoloTest = YoloTest()
+# from .object_detection.evaluate import YoloTest
+# YoloTest = YoloTest()
 
 # Create your views here.
 def index(request):
@@ -65,11 +65,11 @@ def objectdetection(request):
         # print(f'home/static/images/{myfile.name}.jpg')
         # forImport_recognize_faces_image.readPara("home/dlib/encoding3.pickle",f'home/static/images/{myfile.name}','cnn')
         # photopath="images/upload.jpg"
-        YoloTest.evaluate()
-        print(YoloTest.dlist)
-        for item in YoloTest.dlist:
-            sort = Classified(**item) 
-            sort.save()
+        # YoloTest.evaluate()
+        # print(YoloTest.dlist)
+        # for item in YoloTest.dlist:
+        #     sort = Classified(**item) 
+        #     sort.save()
     return render(request,'objectdetection.html',locals())
 
 

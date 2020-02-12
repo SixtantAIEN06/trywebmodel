@@ -19,7 +19,7 @@ def deprocess(img):
     return (img + 1) / 2
 
 def beauty(image):
-    org_h,org_w,_=imread(args.no_makeup).shape
+    org_h,org_w,_=imread(image).shape
 
 
     batch_size = 1
@@ -55,10 +55,10 @@ def beauty(image):
         result[:img_size, (i + 1) * img_size: (i + 2) * img_size] = Xs_[0]
 
         
-    imsave('./home/static/temp/result2.jpg', result)
-    result = cv2.resize(imread('./home/static/temp/result.jpg'), (org_w*(len(makeups) + 1) , org_h))
-    imsave('./home/static/temp/result.jpg', result)
-    os.remove('./home/static/temp/result.jpg')
+    imsave('./home/static/temp/result_.jpg', result)
+    result2 = cv2.resize(imread('./home/static/temp/result_.jpg'), (org_w*(len(makeups) + 1) , org_h))
+    imsave('./home/static/temp/result.jpg', result2)
+    os.remove('./home/static/temp/result_.jpg')
     
 
 # if __name__=="__main__":
