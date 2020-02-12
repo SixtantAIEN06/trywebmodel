@@ -7,4 +7,5 @@ urlpatterns = [
     path('delmypic/',views.delmypic,name='uplaodfile'),
     path('styletransfer/{imgpath:imgpath}',views.styletransfer),
     path('result/',views.result),
+    path('objectdetection/',views.objectdetection),
 ]
