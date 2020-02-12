@@ -17,7 +17,7 @@ import shutil
 import numpy as np
 import tensorflow as tf
 import sys
-sys.path.append("C:/Users/User/AI/trywebmodel/home/object_detection/")
+sys.path.append("./home/object_detection/")
 import core.utils as utils
 from core.config import cfg
 from core.yolov3 import YOLOV3

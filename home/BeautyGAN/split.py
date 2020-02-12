@@ -23,3 +23,4 @@ def split(type_):
     #wait click ok
 
     im1.save('./home/static/temp/split.jpg') 
+

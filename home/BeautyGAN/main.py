@@ -19,7 +19,8 @@ def deprocess(img):
     return (img + 1) / 2
 
 def beauty(image):
-    
+    org_h,org_w,_=imread(args.no_makeup).shape
+
 
     batch_size = 1
     img_size = 256
@@ -48,10 +49,17 @@ def beauty(image):
         Y_img = np.expand_dims(preprocess(makeup), 0)
         Xs_ = sess.run(Xs, feed_dict={X: X_img, Y: Y_img})
         Xs_ = deprocess(Xs_)
+
+
         # result[:img_size, (i + 1) * img_size: (i + 2) * img_size] = makeup / 255.
         result[:img_size, (i + 1) * img_size: (i + 2) * img_size] = Xs_[0]
+
         
+    imsave('./home/static/temp/result2.jpg', result)
+    result = cv2.resize(imread('./home/static/temp/result.jpg'), (org_w*(len(makeups) + 1) , org_h))
     imsave('./home/static/temp/result.jpg', result)
+    os.remove('./home/static/temp/result.jpg')
+    
 
 # if __name__=="__main__":
 #     beauty('./home/static/images/baby.jpg')
